@@ -15,15 +15,6 @@ Then open the index.html file to run the game.
 
 1. Take user input
 2. Generate a random input from computer
-3. Compare and decide winner
+3. Compare and decide winner of round
 4. Create a score counter
-5. If either score hits 5 show the higher score holder as winner
-
-### Variables
-
-- Score
-  - userScore
-  - computerScore
-- input
-  - userInput
-  - computerInput
+5. Play 5 rounds an annouce winner based on score
