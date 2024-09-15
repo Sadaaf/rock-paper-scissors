@@ -1,6 +1,6 @@
 # Rock Paper Scissors
 
-This game works in your browser console.
+[Click here to play](https://sadaaf.github.io/rock-paper-scissors). This game works in your browser console.
 
 to run the game locally, clone the repository
 
