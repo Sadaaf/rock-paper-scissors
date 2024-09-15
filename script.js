@@ -52,28 +52,30 @@ function playGame() {
 
   showScore(`Player: ${humanScore}\nComputer: ${computerScore}`);
 
+  disablePlayerMoves = () =>
+    buttons.forEach((button) => {
+      buttons.forEach((button) => {
+        button.disabled = true;
+      });
+    });
+
+  enableResetButton = () => {
+    const resetButtonsPlace = document.querySelector(".reset");
+    const resetButton = document.createElement("button");
+    resetButton.innerText = "RESET";
+    resetButton.addEventListener("click", handleReset );
+    resetButtonsPlace.appendChild(resetButton);
+  };
+
   if (humanScore === 5) {
     showScore(`You WON!!! Congratulations\nScore: ${humanScore}`);
-    buttons.forEach((button) => {
-      buttons.forEach((button) => {
-        button.disabled = true;
-      });
-    });
+    disablePlayerMoves();
+    enableResetButton();
   } else if (computerScore == 5) {
     showScore(`Sorry, You LOST!!!!\nScore: ${humanScore}`);
-    buttons.forEach((button) => {
-      buttons.forEach((button) => {
-        button.disabled = true;
-      });
-    });
+    disablePlayerMoves();
+    enableResetButton();
   }
-  !humanScore &&
-    !computerScore &&
-    buttons.forEach((button) => {
-      buttons.forEach((button) => {
-        button.disabled = false;
-      });
-    });
 }
 
 //////////////
@@ -83,6 +85,18 @@ function playGame() {
 function handleClick(e) {
   playRound(e.target.value);
   playGame();
+}
+
+function handleReset(_e) {
+  humanScore = 0;
+  computerScore = 0;
+  buttons.forEach((button) => {
+    buttons.forEach((button) => {
+      button.disabled = false;
+    });
+  });
+  const resetButton = document.querySelector(".reset button");
+  resetButton.remove();
 }
 
 const buttons = document.querySelectorAll(".selection button");
